@@ -17,9 +17,10 @@ var lengthOfLongestSubstring = function (s) {
     }
 
     map[s[end]] = end
-    /* add string character into object where the object key is the character and the value is the                      index. this is used to know a string character we have looked at or seen before */
+    /* add string character into object where the object key is the character and the value is the index. this is used to know a string character we have looked at or seen before */
     max = Math.max(max, end - begin + 1)
-    /* for each interation lets say when end is 0,1 ... n max will equals comparing the max value with the              subtraction between the end and begin value + 1 
+
+    /* for each interation lets say when end is 0,1 ... n max will equals comparing the max value with the subtraction between the end and begin value + 1 
         
             eg: 
             
@@ -33,7 +34,13 @@ var lengthOfLongestSubstring = function (s) {
             when end = 1 (a,b)
             map = {"a":0, "b": 1}
             begin = 0
-            max = Math.max(1, 1 - 0 + 1) = 2 "max = 2 since both ab are unique substrings because we are                                                     looking for the longest unique substring"
+            max = Math.max(1, 1 - 0 + 1) = 2 "max = 2 since both ab are unique substrings because we are looking for the longest unique substring and also we are adding 1 after each substraction to get the actual number of characters since JS is zero based. for instance 
+            if
+            begin = 0
+            end = 1
+            substring  = "ab"
+            end - begin = 1 + 1 =  2 "which is the correct number of max substring we have at the moment hence max = 2"
+            "
             
             when end = 2 (a, b, b)
             map = {"b": 2, "a": 0} "objects only store unique keys so we can have duplicate keys that is why                                       the recent value of the same key will replace the previous"
